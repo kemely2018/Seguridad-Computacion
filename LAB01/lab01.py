@@ -68,7 +68,18 @@ def frecuencias(archivo):
 
 
 #6 Aplicar el método Kasiski
-
+def kasiski():
+    C=[]
+    dic={}
+    txt = lineaP
+    for i in range(len(txt)-2):
+        C.append(txt[i:i+3])
+    for k in C:
+        a = C.count(k)
+        if a > 1:
+            dic[k]=a
+    print('*Kasiski')
+    print(dic)
 #7 UNICODE-8
 def utf8():
     l = lineaP
@@ -107,6 +118,7 @@ def main():
     #2da Parte
     frecuencias("HERALDOSNEGROS_pre")
     #frecuencias("proba")
+    kasiski()
     utf8()
     aqui()
     
