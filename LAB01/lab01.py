@@ -48,16 +48,44 @@ def frecuencias(archivo):
     DiccFrecuencias ={}
     for i in lineaP:
         DiccFrecuencias[i]=DiccFrecuencias.get(i,0)+1
-    print('Frecuencias : '+str(DiccFrecuencias))
+    print('*Frecuencias : '+str(DiccFrecuencias))
     #Ordenar    
-    s1= sorted(DiccFrecuencias)
-    #Mayores 5
-    s2 =s1[:5]
-    print('Mayor frecuencias : '+ str(s2))
+    s1= sorted(DiccFrecuencias.values())
+    s1.reverse()
+    D ={}
+    for i in s1:
+        for j in DiccFrecuencias.keys():
+            if DiccFrecuencias[j]==i:
+                D[j]=DiccFrecuencias[j]   
+    s2=list(D.keys())
+    s3 =s2[:5]
+    print('*Mayor frecuencia:'+str(s3))
+
 
 #6 Aplicar el método Kasiski
 
+#7 UNICODE-8
 
+#8 UNICODE-8230
+
+#9 AQUÍ cada 20 caracteres
+def aqui():
+    global lineaP
+    n=len(lineaP)
+    d=20
+    r=n//d
+    l1=""
+    for i in range(d, n+1, d):
+        l1 = l1+lineaP[i-20:i]+'HOY'
+    l1 = l1+lineaP[r*d:]
+    n1=len(l1)
+    if (n1%4 != 0):
+        rr=(n1//4+1)*4
+        print(rr)
+        for i in range(rr-n1):
+            l1=l1+'X'
+    print("*Insertar cada 20 -> HOY")
+    print(l1)
     
 def main():
     #1era Parte
@@ -68,7 +96,10 @@ def main():
     guardar()
     #2da Parte
     frecuencias("HERALDOSNEGROS_pre")
+    #frecuencias("proba")
+    aqui()
     
+
 
     
 if __name__ == '__main__':
