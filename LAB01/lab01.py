@@ -2,6 +2,11 @@ import string
 letras_reemplazar = [('j','i'),('h','i'),('ñ','n'),('k','l'),('u','v'),('w','v'),('y','z')]
 tildes =[('á','a'),('é','e'),('í','i'),('ó','o'),('ú','u')]
 signo = ['?', '¿','¡','!',' ',',','.',';',':','\n']
+UTF_8 = [('A','41'),('B','42'),('C','43'),('D','44'),('E','45'),
+         ('F','46'),('G','47'),('H','48'),('I','49'),('J','4a'),
+         ('K','4b'),('L','4c'),('M','4d'),('N','4e'),('O','4f'),
+         ('P','50'),('Q','51'),('R','52'),('S','53'),('T','54'),
+         ('U','55'),('V','56'),('W','57'),('X','58'),('Y','59'),('Z','5a')]
 texto = open("heraldos.txt",encoding='utf-8')
 linea = texto.read()
 texto.close()
@@ -65,6 +70,12 @@ def frecuencias(archivo):
 #6 Aplicar el método Kasiski
 
 #7 UNICODE-8
+def utf8():
+    l = lineaP
+    for i,j in UTF_8:
+        l= l.replace(i,j)
+    print("*UNICODE-8")
+    print(l)
 
 #8 UNICODE-8230
 
@@ -81,7 +92,6 @@ def aqui():
     n1=len(l1)
     if (n1%4 != 0):
         rr=(n1//4+1)*4
-        print(rr)
         for i in range(rr-n1):
             l1=l1+'X'
     print("*Insertar cada 20 -> HOY")
@@ -97,6 +107,7 @@ def main():
     #2da Parte
     frecuencias("HERALDOSNEGROS_pre")
     #frecuencias("proba")
+    utf8()
     aqui()
     
 
